@@ -11,6 +11,6 @@ module com.example.tubespbo {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.tubespbo to javafx.fxml;
-    exports com.example.tubespbo;
+    opens Controller to javafx.fxml;
+    exports Controller;
 }
