@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.DashboardAdminController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -26,7 +26,7 @@
                      <children>
                         <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="65.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@User_icon_2.svg.png" />
+                              <Image url="@../Assets/UserIcon.jpg" />
                            </image>
                         </ImageView>
                         <Line endX="56.0" endY="1.52587890625E-5" layoutX="109.0" layoutY="128.0" startX="-69.33334350585938" startY="1.52587890625E-5" />
@@ -47,7 +47,7 @@
                            <graphic>
                               <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Users/Pro%20Laptop/Downloads/dashboard-removebg-preview.png" />
+                                    <Image url="@.." />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -58,7 +58,7 @@
                            <graphic>
                               <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Users/Pro%20Laptop/Downloads/manage_sampah-removebg-preview.png" />
+                                    <Image url="@../Assets/StatisticIcon.jpg" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -66,7 +66,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Users/Pro%20Laptop/Downloads/manajemen_user-removebg-preview.png" />
+                                    <Image url="@../Assets/UserSettingsIcon.jpg" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -74,7 +74,7 @@
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ffffff;">
                                  <image>
-                                    <Image url="@../Users/Pro%20Laptop/Downloads/1da5cc9c244a301061af65f63e2b9884-removebg-preview.png" />
+                                    <Image url="@../Assets/MoneyIcon.jpg" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -82,7 +82,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Logout-removebg-preview.png" />
+                                    <Image url="@../Assets/LogoutIcon.jpg" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -95,7 +95,7 @@
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Users/Pro%20Laptop/Downloads/histori-removebg-preview.png" />
+                                    <Image url="@../Assets/RecycleIcon.jpg" />
                                  </image>
                               </ImageView>
                            </graphic>

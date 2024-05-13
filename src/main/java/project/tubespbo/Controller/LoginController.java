@@ -37,6 +37,9 @@ public class LoginController {
     @FXML
     private Button createAccountButton;
 
+    @FXML
+    private Button loginButton;
+
     private Connection connection;
 
     private Stage stage;
@@ -59,6 +62,15 @@ public class LoginController {
             if (validateLogin(username, password)) {
                 messageLabel.setText("Login successful!");
                 String role = Session.getRole(); // Retrieve user's role
+                if ("admin".equals(role)) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/DashboardAdminView.fxml"));
+                    Parent root = loader.load();
+                    DashboardAdminController dashboardAdminController = loader.getController(); // Change to your actual admin dashboard controller
+                    dashboardAdminController.setStage((Stage) loginButton.getScene().getWindow());
+                    Scene currentScene = loginButton.getScene();
+                    currentScene.setRoot(root);
+                } else {
+                }
             } else {
                 messageLabel.setText("Invalid username or password!");
             }
