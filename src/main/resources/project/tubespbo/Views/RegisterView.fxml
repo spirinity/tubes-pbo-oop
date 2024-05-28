@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="63.0" fitWidth="81.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Assets/UserIcon.jpg" />
+                        <Image url="@../Assets/UserIcon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="72.0" layoutY="77.0" text="Sign up account">
