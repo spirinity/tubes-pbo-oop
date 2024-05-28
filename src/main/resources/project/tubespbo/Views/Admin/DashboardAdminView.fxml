@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.DashboardAdminController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Admin.DashboardAdminController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -26,7 +26,7 @@
                      <children>
                         <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="65.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Assets/UserIcon.jpg" />
+                              <Image url="@../../Assets/UserIcon.png" />
                            </image>
                         </ImageView>
                         <Line endX="56.0" endY="1.52587890625E-5" layoutX="109.0" layoutY="128.0" startX="-69.33334350585938" startY="1.52587890625E-5" />
@@ -40,49 +40,49 @@
                               <Font name="Gill Sans MT Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Button layoutX="32.0" layoutY="140.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Dashboard">
+                        <Button fx:id="dashboardButton" layoutX="32.0" layoutY="140.0" mnemonicParsing="false" onAction="#dashboardOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Dashboard">
                            <font>
                               <Font size="11.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@.." />
+                                    <Image url="@../../Assets/StatisticIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="32.0" layoutY="183.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management Sampah">
+                        <Button fx:id="managementSampahButton" layoutX="32.0" layoutY="183.0" mnemonicParsing="false" onAction="#managementSampahOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management Sampah">
                            <font>
                               <Font size="11.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Assets/StatisticIcon.jpg" />
+                                    <Image url="@../../Assets/RecycleIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="32.0" layoutY="226.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management User">
+                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management User">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Assets/UserSettingsIcon.jpg" />
+                                    <Image url="@../../Assets/UserSettingsIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="32.0" layoutY="269.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Transaksi">
+                        <Button fx:id="transaksiButton" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#transaksiOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Transaksi">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ffffff;">
                                  <image>
-                                    <Image url="@../Assets/MoneyIcon.jpg" />
+                                    <Image url="@../../Assets/MoneyIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="32.0" layoutY="365.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #FF0000;">
+                        <Button fx:id="logoutButton" layoutX="32.0" layoutY="365.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #FF0000;">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Assets/LogoutIcon.jpg" />
+                                    <Image url="@../../Assets/LogoutIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -91,11 +91,11 @@
                               <Font name="Gill Sans MT Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Button layoutX="32.0" layoutY="312.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Histori Transaksi">
+                        <Button fx:id="historiTransaksiButton" layoutX="32.0" layoutY="312.0" mnemonicParsing="false" onAction="#historiTransaksiOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Histori Transaksi">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Assets/RecycleIcon.jpg" />
+                                    <Image url="@../../Assets/TimeIcon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
