@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="260.0" prefWidth="268.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Admin.AddSampahController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="22.0" prefHeight="34.0" prefWidth="149.0" text="Tambah Sampah">
+         <font>
+            <Font name="Gill Sans MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="namaField" alignment="CENTER" layoutX="60.0" layoutY="84.0" promptText="Nama Sampah" />
+      <TextField fx:id="hargaField" alignment="CENTER" layoutX="59.0" layoutY="139.0" promptText="Harga Per/Kilo" />
+      <Label layoutX="60.0" layoutY="64.0" text="Nama Sampah">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="120.0" text="Harga Per/Kilo">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="tambahButton" layoutX="81.0" layoutY="206.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Sampah" />
+      <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="176.0" prefHeight="19.0" prefWidth="210.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
