@@ -19,7 +19,7 @@
                <children>
                   <ImageView fitHeight="63.0" fitWidth="81.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Assets/UserIcon.jpg" />
+                        <Image url="@../Assets/UserIcon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="90.0" layoutY="77.0" text="Buat Akun">
@@ -27,14 +27,15 @@
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="usernameField" layoutX="34.0" layoutY="160.0" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <PasswordField fx:id="passwordField" layoutX="34.0" layoutY="200.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
+                  <TextField fx:id="usernameField" layoutX="34.0" layoutY="200.0" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
+                  <PasswordField fx:id="passwordField" layoutX="34.0" layoutY="240.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                   <TextField fx:id="login_showPassword" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" visible="false" />
-                  <CheckBox fx:id="login_selectShowPassword" layoutX="73.0" layoutY="250.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="119.0" text="Show Password" />
-                  <Button fx:id="createButton" layoutX="36.0" layoutY="288.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Buat Akun" textFill="#0e120e" />
-                  <Label fx:id="messageLabel" contentDisplay="CENTER" layoutX="60.0" layoutY="373.0" prefHeight="18.0" prefWidth="180.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                  <CheckBox fx:id="login_selectShowPassword" layoutX="73.0" layoutY="280.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="119.0" text="Show Password" />
+                  <Button fx:id="createButton" layoutX="35.0" layoutY="314.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Buat Akun" textFill="#0e120e" />
+                  <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="43.0" layoutY="99.0" prefHeight="18.0" prefWidth="180.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
                   <TextField fx:id="namaLengkapField" layoutX="34.0" layoutY="120.0" prefHeight="33.0" prefWidth="194.0" promptText="Nama Lengkap" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <Button fx:id="loginButton" layoutX="36.0" layoutY="330.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Login" textFill="#0e120e" />
+                  <Button fx:id="loginButton" layoutX="36.0" layoutY="356.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Login" textFill="#0e120e" />
+                  <TextField fx:id="alamatField" layoutX="34.0" layoutY="160.0" prefHeight="33.0" prefWidth="194.0" promptText="Alamat" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="signup_form" layoutX="14.0" layoutY="15.0" prefHeight="405.0" prefWidth="253.0" style="-fx-background-color: #fff;" visible="false">

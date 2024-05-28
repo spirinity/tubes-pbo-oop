@@ -125,13 +125,13 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TableView layoutX="15.0" layoutY="98.0" prefHeight="211.0" prefWidth="334.0">
+                                                <TableView fx:id="userTableView" layoutX="15.0" layoutY="98.0" prefHeight="211.0" prefWidth="342.0">
                                                   <columns>
-                                                    <TableColumn fx:id="usernameField" prefWidth="69.59997367858887" text="Username" />
-                                                    <TableColumn fx:id="passwordField" prefWidth="64.79999542236328" text="Password" />
-                                                      <TableColumn fx:id="roleField" prefWidth="49.60003662109375" text="Role" />
-                                                      <TableColumn fx:id="namaField" prefWidth="65.60003662109375" text="Nama " />
-                                                      <TableColumn fx:id="alamatField" prefWidth="84.79998779296875" text="Alamat" />
+                                                    <TableColumn fx:id="usernameColumn" prefWidth="69.59997367858887" text="Username" />
+                                                    <TableColumn fx:id="passwordColumn" prefWidth="64.79999542236328" text="Password" />
+                                                      <TableColumn fx:id="roleColumn" prefWidth="48.0" text="Role" />
+                                                      <TableColumn fx:id="namaLengkapColumn" prefWidth="82.4000244140625" text="Nama " />
+                                                      <TableColumn fx:id="alamatColumn" prefWidth="76.0" text="Alamat" />
                                                   </columns>
                                                 </TableView>
                                                 <Button fx:id="deleteButton" layoutX="232.0" layoutY="321.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: red;" text="Delete Admin" />

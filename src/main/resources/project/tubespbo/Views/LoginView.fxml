@@ -19,7 +19,7 @@
                <children>
                   <ImageView fitHeight="63.0" fitWidth="81.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Assets/UserIcon.jpg" />
+                        <Image url="@../Assets/UserIcon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="85.0" layoutY="77.0" text="Login Akun">
@@ -27,13 +27,13 @@
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="usernameField" layoutX="34.0" layoutY="111.0" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
+                  <TextField fx:id="usernameField" layoutX="34.0" layoutY="111.0" pickOnBounds="false" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                   <PasswordField fx:id="passwordField" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                   <TextField fx:id="login_showPassword" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" visible="false" />
                   <CheckBox fx:id="login_selectShowPassword" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="119.0" text="Lihat Password" />
                   <Button fx:id="loginButton" layoutX="33.0" layoutY="229.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Login" textFill="#0e120e" />
-                  <Label layoutX="105.0" layoutY="340.0" text="Buat Akun" />
-                  <Button fx:id="createAccountButton" layoutX="36.0" layoutY="366.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Buat Akun" />
+                  <Label layoutX="105.0" layoutY="334.0" text="Buat Akun" />
+                  <Button fx:id="createAccountButton" layoutX="36.0" layoutY="358.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Buat Akun" />
                   <Label fx:id="messageLabel" contentDisplay="CENTER" layoutX="61.0" layoutY="287.0" prefHeight="18.0" prefWidth="180.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
                </children>
             </AnchorPane>
