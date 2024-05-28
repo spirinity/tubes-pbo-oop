@@ -6,27 +6,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="260.0" prefWidth="268.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Admin.AddSampahController">
+<AnchorPane prefHeight="314.0" prefWidth="268.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Admin.AddAdminController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="22.0" prefHeight="34.0" prefWidth="149.0" text="Tambah Sampah">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="14.0" prefHeight="34.0" prefWidth="149.0" text="Tambah Admin">
          <font>
             <Font name="Gill Sans MT Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="namaField" alignment="CENTER" layoutX="60.0" layoutY="84.0" promptText="Nama Sampah" />
-      <TextField fx:id="hargaField" alignment="CENTER" layoutX="59.0" layoutY="139.0" promptText="Harga Per/Kilo" />
-      <Label layoutX="60.0" layoutY="64.0" text="Nama Sampah">
+      <TextField fx:id="usernameField" alignment="TOP_LEFT" layoutX="57.0" layoutY="67.0" promptText="Username" />
+      <TextField fx:id="passwordField" alignment="TOP_LEFT" layoutX="58.0" layoutY="112.0" promptText="Password" />
+      <Label layoutX="60.0" layoutY="48.0" text="Username">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="120.0" text="Harga Per/Kilo">
+      <Label layoutX="60.0" layoutY="93.0" text="Password">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="tambahButton" layoutX="81.0" layoutY="206.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Sampah" />
-      <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="176.0" prefHeight="19.0" prefWidth="210.0" textAlignment="CENTER" textFill="RED">
+      <Button fx:id="tambahButton" layoutX="85.0" layoutY="242.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Admin" />
+      <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="280.0" prefHeight="19.0" prefWidth="210.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="alamatField" alignment="TOP_LEFT" layoutX="59.0" layoutY="202.0" promptText="Alamat" />
+      <TextField fx:id="namaLengkapField" alignment="TOP_LEFT" layoutX="58.0" layoutY="157.0" promptText="Nama Lengkap" />
+      <Label layoutX="59.0" layoutY="138.0" text="Nama Lengkap">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="183.0" text="Alamat">
          <font>
             <Font size="13.0" />
          </font>
