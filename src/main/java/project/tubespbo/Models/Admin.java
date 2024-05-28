@@ -8,13 +8,17 @@ import java.sql.PreparedStatement;
 import project.tubespbo.Util.DatabaseConnection;
 
 public class Admin extends Entity {
-    public Admin(String username, String password, String namaLengkap, String alamat) {
+    private Integer id;
+    public Admin(Integer id, String username, String password, String namaLengkap, String alamat) {
         super(username, password, "admin", namaLengkap, alamat);
+        this.id = id;
     }
-
+    public Integer getId() {
+        return id;
+    }
     @Override
     public boolean authenticate() {
-        String query = "SELECT nama_lengkap AS namaLengkap, alamat FROM users WHERE username = ? AND password = ? AND role = 'admin'";
+        String query = "SELECT id, nama_lengkap AS namaLengkap, alamat FROM users WHERE username = ? AND password = ? AND role = 'admin'";
 
         DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
         try (Connection conn = dbConnection.getConnection();
@@ -25,6 +29,7 @@ public class Admin extends Entity {
 
 
             if (rs.next()) {
+                this.id = rs.getInt("id");
                 this.namaLengkap = rs.getString("namaLengkap");
                 this.alamat = rs.getString("alamat");
                 return true;

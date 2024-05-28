@@ -7,14 +7,19 @@ import java.sql.PreparedStatement;
 import project.tubespbo.Util.DatabaseConnection;
 
 public class Nasabah extends Entity {
+        private Integer id;
 
-        public Nasabah(String username, String password, String namaLengkap, String alamat) {
+        public Nasabah(Integer id, String username, String password, String namaLengkap, String alamat) {
             super(username, password, "nasabah", namaLengkap, alamat);
+            this.id = id;
         }
 
+        public Integer getId() {
+        return id;
+        }
         @Override
         public boolean authenticate() {
-            String query = "SELECT nama_lengkap AS namaLengkap, alamat FROM users WHERE username = ? AND password = ? AND role = 'nasabah'";
+            String query = "SELECT id, nama_lengkap AS namaLengkap, alamat FROM users WHERE username = ? AND password = ? AND role = 'nasabah'";
 
             DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
             try (Connection conn = dbConnection.getConnection();
@@ -25,6 +30,7 @@ public class Nasabah extends Entity {
 
 
                 if (rs.next()) {
+                    this.id = rs.getInt("id");
                     this.namaLengkap = rs.getString("namaLengkap");
                     this.alamat = rs.getString("alamat");
                     return true;
