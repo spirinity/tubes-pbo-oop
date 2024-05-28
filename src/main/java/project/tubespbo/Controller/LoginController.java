@@ -10,13 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import project.tubespbo.Controller.Admin.DashboardAdminController;
+import project.tubespbo.Controller.Nasabah.DashboardUserController;
+import project.tubespbo.Util.DatabaseConnection;
+import project.tubespbo.Util.Session;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
+import project.tubespbo.Models.Admin;
+import project.tubespbo.Models.Nasabah;
+import project.tubespbo.Models.Entity;
 public class LoginController {
 
     public void initialize() {
@@ -50,52 +54,42 @@ public class LoginController {
     }
 
     @FXML
-    protected void loginOnAction(ActionEvent e) throws IOException {
+    public void loginOnAction() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (username.isEmpty()) {
-            messageLabel.setText("Please input a username!");
-        } else if (password.isEmpty()) {
-            messageLabel.setText("Please input a password!");
-        } else {
-            if (validateLogin(username, password)) {
-                messageLabel.setText("Login successful!");
-                String role = Session.getRole(); // Retrieve user's role
-                if ("admin".equals(role)) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/DashboardAdminView.fxml"));
-                    Parent root = loader.load();
-                    DashboardAdminController dashboardAdminController = loader.getController(); // Change to your actual admin dashboard controller
-                    dashboardAdminController.setStage((Stage) loginButton.getScene().getWindow());
-                    Scene currentScene = loginButton.getScene();
-                    currentScene.setRoot(root);
-                } else {
-                }
-            } else {
-                messageLabel.setText("Invalid username or password!");
-            }
+        Entity entity;
+        // First try to authenticate as admin
+        entity = new Admin(null , username, password, null, null);
+        if (entity.authenticate()) {
+            Session.getInstance().setCurrentUser(entity);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
+            Parent root = loader.load();
+            DashboardAdminController dashboardAdminController = loader.getController(); // Change to your actual admin dashboard controller
+            dashboardAdminController.setStage((Stage) loginButton.getScene().getWindow());
+            Scene currentScene = loginButton.getScene();
+            currentScene.setRoot(root);
+            return;
         }
+
+        // If not admin, try to authenticate as user
+        entity = new Nasabah(null, username, password, null, null);
+        if (entity.authenticate()) {
+            Session.getInstance().setCurrentUser(entity);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/DashboardUserView.fxml"));
+            Parent root = loader.load();
+            DashboardUserController dashboardUserController = loader.getController(); // Change to your actual admin dashboard controller
+            dashboardUserController.setStage((Stage) loginButton.getScene().getWindow());
+            Scene currentScene = loginButton.getScene();
+            currentScene.setRoot(root);
+            return;
+        }
+
+        // If neither, show error message
+        messageLabel.setText("Username atau password salah!");
     }
 
-    private boolean validateLogin(String username, String password) {
-        String query = "SELECT level FROM useraccounts WHERE username = ? AND password = ?";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                String level = resultSet.getString("level");
-                Session.setUsername(username); // Set the session username
-                Session.setRole(level); // Set the session role
-                return true; // User exists
-            }
-            return false; // User not found
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+
 
     @FXML
     private void createOnAction(ActionEvent e) throws IOException {
