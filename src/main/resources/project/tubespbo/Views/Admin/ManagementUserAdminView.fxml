@@ -31,11 +31,6 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="82.0" layoutY="109.0" text="Admin">
-                           <font>
-                              <Font name="Gill Sans MT Bold" size="13.0" />
-                           </font>
-                        </Label>
                         <Button fx:id="dashboardButton" layoutX="32.0" layoutY="140.0" mnemonicParsing="false" onAction="#dashboardOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Dashboard">
                            <font>
                               <Font size="11.0" />
@@ -96,6 +91,11 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="109.0" prefHeight="15.0" prefWidth="117.0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="13.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </left>
