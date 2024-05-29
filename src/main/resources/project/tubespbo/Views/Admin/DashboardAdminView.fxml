@@ -35,7 +35,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="82.0" layoutY="109.0" text="Admin">
+                        <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="109.0" prefHeight="15.0" prefWidth="117.0" textAlignment="CENTER">
                            <font>
                               <Font name="Gill Sans MT Bold" size="13.0" />
                            </font>
@@ -237,6 +237,5 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </StackPane>

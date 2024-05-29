@@ -26,7 +26,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="usernameLabel" alignment="CENTER" layoutX="44.0" layoutY="109.0" prefHeight="15.0" prefWidth="122.0" textAlignment="CENTER">
+                        <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="109.0" prefHeight="15.0" prefWidth="122.0" textAlignment="CENTER">
                            <font>
                               <Font name="Gill Sans MT Bold" size="13.0" />
                            </font>
