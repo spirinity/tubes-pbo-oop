@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Nasabah.TransaksiUserController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tubespbo.Controller.Nasabah.HistoriTransaksiUserController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -31,7 +31,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="91.0" layoutY="109.0" text="User">
+                        <Label layoutX="87.0" layoutY="109.0" text="User">
                            <font>
                               <Font name="Gill Sans MT Bold" size="13.0" />
                            </font>
@@ -89,25 +89,32 @@
                                  <children>
                                     <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="377.0" prefWidth="373.0" style="-fx-background-color: #ADD8E6;">
+                                          <AnchorPane layoutX="-29.0" layoutY="14.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Label layoutX="19.0" layoutY="14.0" text="Transaksi">
-                                                   <font>
-                                                      <Font size="23.0" />
-                                                   </font>
-                                                </Label>
-                                                <TableView fx:id="transaksiTableView" layoutX="5.0" layoutY="59.0" prefHeight="253.0" prefWidth="363.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="tanggalColumn" prefWidth="57.59997367858887" text="Tanggal" />
-                                                    <TableColumn fx:id="usernameColumn" prefWidth="67.20001983642578" text="Username" />
-                                                      <TableColumn fx:id="sampahColumn" prefWidth="59.2000732421875" text="Sampah" />
-                                                      <TableColumn fx:id="beratColumn" prefWidth="48.0" text="Berat" />
-                                                      <TableColumn fx:id="hargaColumn" prefWidth="63.20001220703125" text="Harga" />
-                                                      <TableColumn fx:id="statusColumn" prefWidth="67.199951171875" text="Status" />
-                                                  </columns>
-                                                </TableView>
-                                                <Button fx:id="tambahTransaksi" layoutX="131.0" layoutY="326.0" mnemonicParsing="false" onAction="#addTransaksiOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Transaksi" />
+                                                <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="382.0" prefWidth="374.0" style="-fx-background-color: #ADD8E6;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Histori Transaksi">
+                                                         <font>
+                                                            <Font size="19.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TableView fx:id="historiTransaksiTableView" layoutX="7.0" layoutY="86.0" prefHeight="286.0" prefWidth="359.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="tanggalColumn" prefWidth="75.0" text="Tanggal" />
+                                                          <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="Username" />
+                                                            <TableColumn fx:id="sampahColumn" prefWidth="60.800048828125" text="Sampah" />
+                                                            <TableColumn fx:id="beratColumn" prefWidth="77.5999755859375" text="Berat(kg)" />
+                                                            <TableColumn fx:id="hargaColumn" prefWidth="71.99993896484375" text="Harga" />
+                                                            <TableColumn prefWidth="92.0001220703125" text="Status" />
+                                                        </columns>
+                                                      </TableView>
+                                                      <Label layoutX="14.0" layoutY="42.0" prefHeight="17.0" prefWidth="123.0" text="Total Uang :">
+                                                         <font>
+                                                            <Font size="19.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
                                           </AnchorPane>
                                        </children>
