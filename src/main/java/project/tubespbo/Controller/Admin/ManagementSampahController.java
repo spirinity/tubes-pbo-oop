@@ -118,6 +118,13 @@ public class ManagementSampahController {
 
     @FXML
     private void logoutOnAction(ActionEvent e) throws IOException {
+        Session.getInstance().clearSession();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/LoginView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     @FXML
