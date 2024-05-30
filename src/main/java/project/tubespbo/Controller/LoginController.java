@@ -24,7 +24,6 @@ import project.tubespbo.Models.Entity;
 public class LoginController {
 
     public void initialize() {
-        // Initialize database connection
         DatabaseConnection dbConnection = new DatabaseConnection();
         connection = dbConnection.getConnection();
     }
@@ -51,6 +50,8 @@ public class LoginController {
     public void setStage(Stage stage) {
         this.stage = stage;
         stage.setResizable(false);
+        stage.setWidth(280);
+        stage.setHeight(435);
     }
 
     @FXML
@@ -65,14 +66,13 @@ public class LoginController {
             Session.getInstance().setCurrentUser(entity);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
             Parent root = loader.load();
-            DashboardAdminController dashboardAdminController = loader.getController(); // Change to your actual admin dashboard controller
+            DashboardAdminController dashboardAdminController = loader.getController();
             dashboardAdminController.setStage((Stage) loginButton.getScene().getWindow());
             Scene currentScene = loginButton.getScene();
             currentScene.setRoot(root);
             return;
         }
 
-        // If not admin, try to authenticate as user
         entity = new Nasabah(null, username, password, null, null);
         if (entity.authenticate()) {
             Session.getInstance().setCurrentUser(entity);
@@ -85,7 +85,6 @@ public class LoginController {
             return;
         }
 
-        // If neither, show error message
         messageLabel.setText("Username atau password salah!");
     }
 
@@ -96,11 +95,8 @@ public class LoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/RegisterView.fxml"));
         Parent root = loader.load();
         RegisterController registerController = loader.getController();
-        registerController.setStage((Stage) createAccountButton.getScene().getWindow()); // Set the stage instance
-
-        // Get the current scene and set its root to the new scene's root
+        registerController.setStage((Stage) createAccountButton.getScene().getWindow());
         Scene currentScene = createAccountButton.getScene();
         currentScene.setRoot(root);
     }
-
 }

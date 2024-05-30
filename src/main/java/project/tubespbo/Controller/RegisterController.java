@@ -36,12 +36,6 @@ public class RegisterController {
     private Label messageLabel;
 
     @FXML
-    private Button registerButton;
-
-    @FXML
-    private Button cancelButton;
-
-    @FXML
     private Button loginButton;
 
     private Stage stage;
@@ -75,6 +69,7 @@ public class RegisterController {
 
         if (createUser(username, password, fullName, address)) {
             messageLabel.setText("Akun sukses terbuat!");
+
         } else {
             messageLabel.setText("Gagal untuk membuat akun!");
         }
@@ -83,8 +78,8 @@ public class RegisterController {
     private boolean createUser(String username, String password, String fullName, String address) {
         String query = "INSERT INTO users (username, password, role, nama_lengkap, alamat) VALUES (?, ?, 'nasabah', ?, ?)";
 
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
@@ -97,8 +92,5 @@ public class RegisterController {
         }
         return false;
     }
-//    @FXML
-//    private void createOnAction(ActionEvent e) throws IOException {
-
-    }
+}
 
