@@ -38,4 +38,6 @@ public abstract class Entity {
     }
 
     public abstract boolean authenticate();
+
+    public abstract Integer getId(); // Add this method
 }
