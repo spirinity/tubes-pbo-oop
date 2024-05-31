@@ -45,6 +45,9 @@ public class HistoriTransaksiUserController {
     private Label usernameLabel;
 
     @FXML
+    private Label uangLabel;
+
+    @FXML
     private TableView<Transaksi> historiTransaksiTableView;
 
     @FXML
@@ -140,6 +143,9 @@ public class HistoriTransaksiUserController {
                 "JOIN sampah ON transaksi.sampah_id = sampah.id " +
                 "WHERE user_id = ? and status = 'Terkonfirmasi'";
         DatabaseConnection dbConnection = new DatabaseConnection();
+
+
+        int totalHarga = 0;
         try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, Session.getInstance().getCurrentUser().getId());
@@ -155,7 +161,9 @@ public class HistoriTransaksiUserController {
                         rs.getDate("tanggal")
                 );
                 historiTransaksiTableView.getItems().add(transaksi);
+                totalHarga += rs.getInt("harga");
             }
+            uangLabel.setText("Rp." + totalHarga);
         } catch (SQLException e) {
             e.printStackTrace();
         }
