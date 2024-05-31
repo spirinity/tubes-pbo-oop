@@ -58,11 +58,6 @@ public class AddAdminController {
         }
     }
 
-    @FXML
-    public void handleCancel() {
-        closeWindow();
-    }
-
     private void closeWindow() {
         Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.close();
