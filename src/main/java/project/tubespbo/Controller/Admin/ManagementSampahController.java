@@ -135,7 +135,7 @@ public class ManagementSampahController {
         Entity currentUser = Session.getInstance().getCurrentUser();
 
         // Display the username in the label
-        usernameLabel.setText(currentUser.getUsername());
+        usernameLabel.setText(currentUser.getUsername() + " (Admin)");
         loadTrashItems();
     }
 
@@ -172,28 +172,6 @@ public class ManagementSampahController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Dialog Konfirmasi");
-//        alert.setHeaderText("Menambahkan Sampah");
-//        alert.setContentText("Apakah yakin ingin menambahkan sampah ini?");
-//
-//        if (alert.showAndWait().get() == ButtonType.OK) {
-//            String nama = namaField.getText();
-//            int harga = Integer.parseInt(hargaField.getText());
-//
-//            String query = "INSERT INTO sampah (nama_sampah, harga_sampah) VALUES (?, ?)";
-//            DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-//            try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
-//                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-//                pstmt.setString(1, nama);
-//                pstmt.setInt(2, harga);
-//                pstmt.executeUpdate();
-//                loadTrashItems();
-//                clearFields();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 
     @FXML

@@ -154,7 +154,7 @@ public class TransaksiAdminController {
         Entity currentUser = Session.getInstance().getCurrentUser();
 
         // Display the username in the label
-        usernameLabel.setText(currentUser.getUsername() + " (Nasabah)");
+        usernameLabel.setText(currentUser.getUsername() + " (Admin)");
         loadTransaksi();
     }
 
