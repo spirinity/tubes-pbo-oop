@@ -6,17 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 import project.tubespbo.Controller.Admin.*;
-import project.tubespbo.Models.Entity;
-import project.tubespbo.Models.Sampah;
-import project.tubespbo.Models.Transaksi;
+import project.tubespbo.Models.*;
 import project.tubespbo.Util.DatabaseConnection;
 import project.tubespbo.Util.Session;
 
@@ -101,8 +96,7 @@ public class TransaksiUserController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/HistoriTransaksiUserView.fxml"));
         Parent root = loader.load();
         HistoriTransaksiUserController historiTransaksiUserController = loader.getController();
-        historiTransaksiUserController.setStage((Stage) historiTransaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        historiTransaksiUserController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -128,8 +122,6 @@ public class TransaksiUserController {
         tanggalColumn.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
 
         Entity currentUser = Session.getInstance().getCurrentUser();
-
-        // Display the username in the label
         usernameLabel.setText(currentUser.getUsername() + " (Nasabah)");
         loadTransaksi();
     }
@@ -142,6 +134,7 @@ public class TransaksiUserController {
                 "JOIN sampah ON transaksi.sampah_id = sampah.id " +
                 "WHERE user_id = ? AND status = 'Pending'";
         DatabaseConnection dbConnection = new DatabaseConnection();
+
         try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, Session.getInstance().getCurrentUser().getId());
@@ -156,7 +149,6 @@ public class TransaksiUserController {
                         rs.getString("status"),
                         rs.getDate("tanggal")
                 );
-                transaksiTableView.getItems().add(transaksi);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -169,11 +161,36 @@ public class TransaksiUserController {
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Menambahkan Admin");
+            stage.setTitle("Menambahkan Transaksi");
             stage.showAndWait();
             loadTransaksi();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void deleteTransaksiOnAction() {
+        Transaksi selectedItem = transaksiTableView.getSelectionModel().getSelectedItem();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Dialog Konfirmasi");
+        alert.setHeaderText("Delete Transaksi");
+        alert.setContentText("Apakah yakin ingin menghapus transaksi ini?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            String query = "DELETE FROM transaksi WHERE id = ?";
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            try (Connection conn = dbConnection.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setInt(1, selectedItem.getId());
+                pstmt.executeUpdate();
+                loadTransaksi();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
         }
     }
 }
