@@ -113,6 +113,11 @@
                                                             <Font size="19.0" />
                                                          </font>
                                                       </Label>
+                                                      <Label fx:id="uangLabel" contentDisplay="CENTER" layoutX="125.0" layoutY="42.0" prefHeight="17.0" prefWidth="123.0" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font size="19.0" />
+                                                         </font>
+                                                      </Label>
                                                    </children>
                                                 </AnchorPane>
                                              </children>
