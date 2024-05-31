@@ -107,7 +107,8 @@
                                                       <TableColumn fx:id="statusColumn" prefWidth="67.199951171875" text="Status" />
                                                   </columns>
                                                 </TableView>
-                                                <Button fx:id="tambahTransaksi" layoutX="131.0" layoutY="326.0" mnemonicParsing="false" onAction="#addTransaksiOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Transaksi" />
+                                                <Button fx:id="tambahTransaksi" layoutX="66.0" layoutY="325.0" mnemonicParsing="false" onAction="#addTransaksiOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Transaksi" />
+                                                <Button fx:id="deleteTransaksi" layoutX="201.0" layoutY="325.0" mnemonicParsing="false" onAction="#deleteTransaksiOnAction" style="-fx-background-color: red;" text="Delete Transaksi" />
                                              </children>
                                           </AnchorPane>
                                        </children>
