@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -62,14 +56,17 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management User">
+                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management Admin">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Assets/UserSettingsIcon.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <font>
+                              <Font size="11.0" />
+                           </font></Button>
                         <Button fx:id="transaksiButton" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#transaksiOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Transaksi">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ffffff;">
@@ -108,128 +105,20 @@
                      <children>
                         <AnchorPane layoutX="36.0" layoutY="29.0" prefHeight="362.0" prefWidth="412.6666666666667" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="12.0" layoutY="12.0" prefHeight="375.0" prefWidth="370.0" style="-fx-background-color: #ADD8E6; -fx-backrouund-radius: 5px; -fx-effect: dropshadow;">
+                              <AnchorPane layoutX="12.0" layoutY="12.0" prefHeight="384.0" prefWidth="358.0" style="-fx-background-color: #ADD8E6; -fx-backrouund-radius: 5px; -fx-effect: dropshadow;">
                                  <children>
-                                    <BarChart layoutX="11.0" layoutY="14.0" prefHeight="169.0" prefWidth="348.0" title="Jumlah Sampah Chart ">
-                                      <xAxis>
-                                        <CategoryAxis label="jenis sampah" side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </BarChart>
-                                    <BarChart layoutX="11.0" layoutY="192.0" prefHeight="167.0" prefWidth="348.0" title="Jumlah Nasabah Chart ">
-                                       <xAxis>
-                                          <CategoryAxis side="BOTTOM" />
-                                       </xAxis>
-                                       <yAxis>
-                                          <NumberAxis side="LEFT" />
-                                       </yAxis>
-                                    </BarChart>
+                                    <ImageView fitHeight="129.0" fitWidth="239.0" layoutX="66.0" layoutY="42.0">
+                                       <image>
+                                          <Image url="@../../Assets/BankSampah.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutY="23.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="377.0" prefWidth="367.0" style="-fx-background-color: #ADD8E6;" visible="false">
-                                       <children>
-                                          <TableView layoutX="20.0" layoutY="79.0" prefHeight="200.0" prefWidth="327.0">
-                                            <columns>
-                                              <TableColumn prefWidth="157.3333740234375" text="Jenis Sampah" />
-                                              <TableColumn minWidth="0.0" prefWidth="169.33331298828125" text="Harga Sampah/ kg" />
-                                            </columns>
-                                          </TableView>
-                                          <Label layoutX="20.0" layoutY="14.0" text="Data Sampah" textFill="#241717">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="20.0" layoutY="50.0" text="Jumlah Jenis :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="20.0" layoutY="306.0" prefHeight="17.0" prefWidth="105.0" text="Jenis Sampah         :" />
-                                          <TextField layoutX="138.0" layoutY="302.0" prefHeight="25.0" prefWidth="80.0" />
-                                          <Label layoutX="20.0" layoutY="343.0" text="Harga Sampah /kg :" />
-                                          <TextField layoutX="138.0" layoutY="339.0" prefHeight="25.0" prefWidth="80.0" />
-                                          <Button layoutX="256.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Tambah" />
-                                          <Button layoutX="256.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Hapus" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="373.0" prefWidth="367.0" style="-fx-background-color: #ADD8E6;" visible="false">
-                                             <children>
-                                                <TableView layoutX="23.0" layoutY="99.0" prefHeight="200.0" prefWidth="321.0">
-                                                  <columns>
-                                                    <TableColumn prefWidth="96.0" text="Username" />
-                                                    <TableColumn prefWidth="111.33331298828125" text="Password" />
-                                                      <TableColumn prefWidth="113.3333740234375" text="Level" />
-                                                  </columns>
-                                                </TableView>
-                                                <Label layoutX="23.0" layoutY="14.0" text="Management User">
-                                                   <font>
-                                                      <Font size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="23.0" layoutY="51.0" text="Jumlah Admin :">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="23.0" layoutY="71.0" text="Jumlah User :">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button layoutX="65.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Tambah Admin" />
-                                                <Button layoutX="203.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Hapus" />
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="400.0" prefWidth="394.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="377.0" prefWidth="373.0" style="-fx-background-color: #ADD8E6;" visible="false">
-                                             <children>
-                                                <Label layoutX="19.0" layoutY="14.0" text="Transaksi">
-                                                   <font>
-                                                      <Font size="23.0" />
-                                                   </font>
-                                                </Label>
-                                                <TableView layoutX="13.0" layoutY="45.0" prefHeight="150.0" prefWidth="348.0">
-                                                  <columns>
-                                                    <TableColumn prefWidth="79.33334350585938" text="Tanggal" />
-                                                    <TableColumn prefWidth="86.00003051757812" text="Username" />
-                                                      <TableColumn prefWidth="96.66668701171875" text="Sampah" />
-                                                      <TableColumn prefWidth="99.99993896484375" text="Jumlah" />
-                                                      <TableColumn prefWidth="105.33331298828125" text="Harga" />
-                                                      <TableColumn prefWidth="80.00006103515625" text="Status" />
-                                                  </columns>
-                                                </TableView>
-                                                <Button layoutX="13.0" layoutY="337.0" mnemonicParsing="false" text="Konfirmasi Transaksi" />
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane layoutX="-29.0" layoutY="14.0" prefHeight="400.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="382.0" prefWidth="374.0" style="-fx-background-color: #ADD8E6;" visible="false">
-                                                   <children>
-                                                      <TableView layoutX="11.0" layoutY="184.0" prefHeight="177.0" prefWidth="351.0">
-                                                        <columns>
-                                                          <TableColumn prefWidth="75.0" text="C1" />
-                                                          <TableColumn prefWidth="75.0" text="C2" />
-                                                        </columns>
-                                                      </TableView>
-                                                      <Label layoutX="14.0" layoutY="14.0" text="Histori Transaksi">
-                                                         <font>
-                                                            <Font size="19.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="198.0" prefHeight="70.0" prefWidth="251.0" text="Aplikasi Manajemen Bank Sampah" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="26.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
