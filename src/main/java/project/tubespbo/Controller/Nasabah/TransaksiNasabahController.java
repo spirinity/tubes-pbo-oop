@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import project.tubespbo.Controller.Admin.*;
 import project.tubespbo.Models.*;
 import project.tubespbo.Util.DatabaseConnection;
 import project.tubespbo.Util.Session;
@@ -21,7 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-public class TransaksiUserController {
+public class TransaksiNasabahController {
 
     private Stage stage;
 
@@ -70,12 +69,11 @@ public class TransaksiUserController {
     }
 
     @FXML
-    private void dashboardOnAction(ActionEvent e) throws IOException {
+    private void dashboardOnAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/DashboardUserView.fxml"));
         Parent root = loader.load();
-        DashboardAdminController dashboardAdminController = loader.getController();
-        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        DashboardNasabahController dashboardNasabahController = loader.getController();
+        dashboardNasabahController.setStage((Stage) dashboardButton.getScene().getWindow());
         Scene currentScene = dashboardButton.getScene();
         currentScene.setRoot(root);
     }
@@ -84,9 +82,8 @@ public class TransaksiUserController {
     private void transaksiOnAction(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/TransaksiUserView.fxml"));
         Parent root = loader.load();
-        TransaksiUserController transaksiUserController = loader.getController();
-        transaksiUserController.setStage((Stage) transaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        TransaksiNasabahController transaksiNasabahController = loader.getController();
+        transaksiNasabahController.setStage((Stage) transaksiButton.getScene().getWindow());
         Scene currentScene = transaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -95,8 +92,8 @@ public class TransaksiUserController {
     private void historiTransaksiOnAction(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/HistoriTransaksiUserView.fxml"));
         Parent root = loader.load();
-        HistoriTransaksiUserController historiTransaksiUserController = loader.getController();
-        historiTransaksiUserController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
+        HistoriTransaksiNasabahController historiTransaksiNasabahController = loader.getController();
+        historiTransaksiNasabahController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -149,6 +146,7 @@ public class TransaksiUserController {
                         rs.getString("status"),
                         rs.getDate("tanggal")
                 );
+                transaksiTableView.getItems().add(transaksi);
             }
         } catch (SQLException e) {
             e.printStackTrace();

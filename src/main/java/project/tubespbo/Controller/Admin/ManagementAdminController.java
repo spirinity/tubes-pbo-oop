@@ -11,7 +11,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import project.tubespbo.Models.Admin;
 import project.tubespbo.Models.Entity;
-import project.tubespbo.Models.Sampah;
 import project.tubespbo.Util.DatabaseConnection;
 import project.tubespbo.Util.Session;
 
@@ -21,7 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ManagementUserController {
+public class ManagementAdminController {
 
     private Stage stage;
 
@@ -64,8 +63,6 @@ public class ManagementUserController {
     @FXML
     private TableColumn<Admin, String> alamatColumn;
 
-
-
     public void setStage(Stage stage) {
         this.stage = stage;
         stage.setResizable(false);
@@ -78,8 +75,7 @@ public class ManagementUserController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
         Parent root = loader.load();
         DashboardAdminController dashboardAdminController = loader.getController();
-        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow());
         Scene currentScene = dashboardButton.getScene();
         currentScene.setRoot(root);
     }
@@ -89,19 +85,17 @@ public class ManagementUserController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementSampahView.fxml"));
         Parent root = loader.load();
         ManagementSampahController managementSampahController= loader.getController();
-        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow());
         Scene currentScene = managementSampahButton.getScene();
         currentScene.setRoot(root);
     }
 
     @FXML
     private void managementUserOnAction(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementUserAdminView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementAdminView.fxml"));
         Parent root = loader.load();
-        ManagementUserController managementUserController = loader.getController();
-        managementUserController.setStage((Stage) managementUserButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        ManagementAdminController managementAdminController = loader.getController();
+        managementAdminController.setStage((Stage) managementUserButton.getScene().getWindow());
         Scene currentScene = managementUserButton.getScene();
         currentScene.setRoot(root);
     }
@@ -111,8 +105,7 @@ public class ManagementUserController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/TransaksiAdminView.fxml"));
         Parent root = loader.load();
         TransaksiAdminController transaksiAdminController = loader.getController();
-        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow());
         Scene currentScene = transaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -122,8 +115,7 @@ public class ManagementUserController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/HistoriTransaksiAdminView.fxml"));
         Parent root = loader.load();
         HistoriTransaksiAdminController historiTransaksiAdminController = loader.getController();
-        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -149,7 +141,6 @@ public class ManagementUserController {
 
         Entity currentUser = Session.getInstance().getCurrentUser();
 
-        // Display the username in the label
         usernameLabel.setText(currentUser.getUsername() + " (Admin)");
         loadUser();
     }
@@ -157,8 +148,8 @@ public class ManagementUserController {
     private void loadUser() {
         userTableView.getItems().clear();
         String query = "SELECT id, username, password, role, nama_lengkap as namaLengkap, alamat FROM users WHERE role ='admin'";
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
@@ -185,7 +176,7 @@ public class ManagementUserController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Menambahkan Admin");
             stage.showAndWait();
-            loadUser(); // Reload trash items after adding a new one
+            loadUser();
         } catch (IOException e) {
             e.printStackTrace();
         }
