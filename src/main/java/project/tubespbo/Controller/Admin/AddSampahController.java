@@ -1,23 +1,12 @@
 package project.tubespbo.Controller.Admin;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import project.tubespbo.Models.Entity;
-import project.tubespbo.Models.Sampah;
 import project.tubespbo.Util.DatabaseConnection;
-import project.tubespbo.Util.Session;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 public class AddSampahController {
 
@@ -43,8 +32,8 @@ public class AddSampahController {
         }
 
         String query = "INSERT INTO sampah (nama_sampah, harga_sampah) VALUES (?, ?)";
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, nama);
             pstmt.setDouble(2, harga);
@@ -55,11 +44,6 @@ public class AddSampahController {
             e.printStackTrace();
             messageLabel.setText("Gagal untuk menambahkan sampah!");
         }
-    }
-
-    @FXML
-    public void handleCancel() {
-        closeWindow();
     }
 
     private void closeWindow() {

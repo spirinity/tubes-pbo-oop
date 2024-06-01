@@ -42,8 +42,8 @@ public class AddAdminController {
         }
 
         String query = "INSERT INTO users (username, password, role, nama_lengkap, alamat) VALUES (?, ?, 'admin', ?, ?)";
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
