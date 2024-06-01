@@ -117,14 +117,13 @@
                                                             <Font size="19.0" />
                                                          </font>
                                                       </Label>
-                                                      <TableView layoutX="7.0" layoutY="51.0" prefHeight="321.0" prefWidth="359.0">
+                                                      <TableView fx:id="historiTransaksiTableView" layoutX="7.0" layoutY="51.0" prefHeight="322.0" prefWidth="366.0">
                                                         <columns>
-                                                          <TableColumn prefWidth="75.0" text="Tanggal" />
-                                                          <TableColumn prefWidth="75.0" text="User" />
-                                                            <TableColumn prefWidth="75.0" text="Sampah" />
-                                                            <TableColumn prefWidth="75.0" text="Jumlah" />
-                                                            <TableColumn prefWidth="75.0" text="Harga" />
-                                                            <TableColumn prefWidth="75.0" text="Status" />
+                                                          <TableColumn fx:id="tanggalColumn" prefWidth="75.0" text="Tanggal" />
+                                                          <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="User" />
+                                                            <TableColumn fx:id="sampahColumn" prefWidth="75.0" text="Sampah" />
+                                                            <TableColumn fx:id="beratColumn" prefWidth="75.0" text="Berat(kg)" />
+                                                            <TableColumn fx:id="hargaColumn" minWidth="0.0" prefWidth="64.79999389648435" text="Harga" />
                                                         </columns>
                                                       </TableView>
                                                    </children>
@@ -142,6 +141,5 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </StackPane>
