@@ -37,18 +37,6 @@
                   <TextField fx:id="alamatField" layoutX="34.0" layoutY="160.0" prefHeight="33.0" prefWidth="194.0" promptText="Alamat" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                   <CheckBox fx:id="showCheckBox" layoutX="71.0" layoutY="280.0" mnemonicParsing="false" onAction="#showOnAction" prefHeight="0.0" prefWidth="119.0" text="Lihat Password" />
                </children>
-               <children>
-                  <ImageView fitHeight="63.0" fitWidth="81.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/UserIcon.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="77.0" text="Sign up account">
-                     <font>
-                        <Font name="Gill Sans MT" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
             </AnchorPane>
             <AnchorPane fx:id="forget_form" layoutX="14.0" layoutY="15.0" prefHeight="405.0" prefWidth="253.0" style="-fx-background-color: #fff;" visible="false">
                <children>
