@@ -65,9 +65,6 @@ public class HistoriTransaksiAdminController {
     private TableColumn<Transaksi, Integer> hargaColumn;
 
     @FXML
-    private TableColumn<Transaksi, String> statusColumn;
-
-    @FXML
     private TableColumn<Transaksi, Date> tanggalColumn;
 
     public void setStage(Stage stage) {
@@ -82,8 +79,7 @@ public class HistoriTransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
         Parent root = loader.load();
         DashboardAdminController dashboardAdminController = loader.getController();
-        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow());
         Scene currentScene = dashboardButton.getScene();
         currentScene.setRoot(root);
     }
@@ -93,19 +89,17 @@ public class HistoriTransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementSampahView.fxml"));
         Parent root = loader.load();
         ManagementSampahController managementSampahController = loader.getController();
-        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow());
         Scene currentScene = managementSampahButton.getScene();
         currentScene.setRoot(root);
     }
 
     @FXML
     private void managementUserOnAction(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementUserAdminView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementAdminView.fxml"));
         Parent root = loader.load();
-        ManagementUserController managementUserController = loader.getController();
-        managementUserController.setStage((Stage) managementUserButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        ManagementAdminController managementAdminController = loader.getController();
+        managementAdminController.setStage((Stage) managementUserButton.getScene().getWindow());
         Scene currentScene = managementUserButton.getScene();
         currentScene.setRoot(root);
     }
@@ -115,8 +109,7 @@ public class HistoriTransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/TransaksiAdminView.fxml"));
         Parent root = loader.load();
         TransaksiAdminController transaksiAdminController = loader.getController();
-        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow());
         Scene currentScene = transaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -126,8 +119,7 @@ public class HistoriTransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/HistoriTransaksiAdminView.fxml"));
         Parent root = loader.load();
         HistoriTransaksiAdminController historiTransaksiAdminController = loader.getController();
-        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -135,7 +127,6 @@ public class HistoriTransaksiAdminController {
     @FXML
     private void logoutOnAction(ActionEvent e) throws IOException {
         Session.getInstance().clearSession();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/LoginView.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) logoutButton.getScene().getWindow();
@@ -153,7 +144,6 @@ public class HistoriTransaksiAdminController {
 
         Entity currentUser = Session.getInstance().getCurrentUser();
 
-        // Display the username in the label
         usernameLabel.setText(currentUser.getUsername() + " (Admin)");
         loadHistoriTransaksi();
     }
@@ -192,7 +182,7 @@ public class HistoriTransaksiAdminController {
                 } else if ("nasabah".equalsIgnoreCase(role)) {
                     user = new Nasabah(null, username, null, namaLengkap, alamat);
                 } else {
-                    continue; // Skip if role is neither 'admin' nor 'nasabah'
+                    continue;
                 }
 
                 Transaksi transaksi = new Transaksi(id, user, sampah, berat, harga, status, tanggal);

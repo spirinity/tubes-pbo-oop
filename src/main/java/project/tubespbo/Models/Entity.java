@@ -34,10 +34,10 @@ public abstract class Entity {
     }
 
     public String getAlamat() {
-        return alamat   ;
+        return alamat;
     }
 
     public abstract boolean authenticate();
 
-    public abstract Integer getId(); // Add this method
+    public abstract Integer getId();
 }
