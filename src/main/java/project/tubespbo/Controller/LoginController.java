@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import project.tubespbo.Controller.Admin.DashboardAdminController;
-import project.tubespbo.Controller.Nasabah.DashboardUserController;
+import project.tubespbo.Controller.Nasabah.DashboardNasabahController;
 import project.tubespbo.Util.DatabaseConnection;
 import project.tubespbo.Util.Session;
 
@@ -63,7 +63,6 @@ public class LoginController {
         String password = passwordField.getText();
 
         Entity entity;
-        // First try to authenticate as admin
         entity = new Admin(null , username, password, null, null);
         if (entity.authenticate()) {
             Session.getInstance().setCurrentUser(entity);
@@ -81,8 +80,8 @@ public class LoginController {
             Session.getInstance().setCurrentUser(entity);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Nasabah/DashboardUserView.fxml"));
             Parent root = loader.load();
-            DashboardUserController dashboardUserController = loader.getController(); // Change to your actual admin dashboard controller
-            dashboardUserController.setStage((Stage) loginButton.getScene().getWindow());
+            DashboardNasabahController dashboardNasabahController = loader.getController(); // Change to your actual admin dashboard controller
+            dashboardNasabahController.setStage((Stage) loginButton.getScene().getWindow());
             Scene currentScene = loginButton.getScene();
             currentScene.setRoot(root);
             return;
