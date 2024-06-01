@@ -211,8 +211,8 @@ public class TransaksiAdminController {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Dialog Konfirmasi");
-        alert.setHeaderText("Delete Admin");
-        alert.setContentText("Apakah yakin ingin menghapus pengguna admin ini?");
+        alert.setHeaderText("Konfirmasi Tramsaksi");
+        alert.setContentText("Apakah anda yakin mengkonfirmasi transaksi ini?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             String updateQuery = "UPDATE transaksi SET status = ? WHERE id = ?";
