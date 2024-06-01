@@ -38,8 +38,6 @@ public class AddTransaksiController {
     private Label messageLabel;
 
     private ObservableList<Sampah> sampahList;
-
-
     @FXML
     private void initialize() {
         loadSampah();
@@ -48,8 +46,8 @@ public class AddTransaksiController {
     private void loadSampah() {
         sampahList = FXCollections.observableArrayList();
         String query = "SELECT id, nama_sampah as nama, harga_sampah as harga FROM sampah";
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -77,7 +75,7 @@ public class AddTransaksiController {
         int berat = Integer.parseInt(beratSampah.getText());
         double totalHarga = selectedSampah.getHarga() * berat;
 
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
         try (Connection  conn = dbConnection.getConnection()) {
             String query = "INSERT INTO transaksi (user_id, sampah_id, berat, harga, status, tanggal) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(query);

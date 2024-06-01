@@ -4,8 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import project.tubespbo.Models.Entity;
+import project.tubespbo.Util.Session;
 
 import java.io.IOException;
 
@@ -30,6 +33,8 @@ public class DashboardAdminController {
     @FXML
     private Button logoutButton;
 
+    @FXML
+    private Label usernameLabel;
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -43,8 +48,7 @@ public class DashboardAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
         Parent root = loader.load();
         DashboardAdminController dashboardAdminController = loader.getController();
-        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow());
         Scene currentScene = dashboardButton.getScene();
         currentScene.setRoot(root);
     }
@@ -54,19 +58,17 @@ public class DashboardAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementSampahView.fxml"));
         Parent root = loader.load();
         ManagementSampahController managementSampahController= loader.getController();
-        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow());
         Scene currentScene = managementSampahButton.getScene();
         currentScene.setRoot(root);
     }
 
     @FXML
     private void managementUserOnAction(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementUserAdminView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementAdminView.fxml"));
         Parent root = loader.load();
-        ManagementUserController managementUserController = loader.getController();
-        managementUserController.setStage((Stage) managementUserButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        ManagementAdminController managementAdminController = loader.getController();
+        managementAdminController.setStage((Stage) managementUserButton.getScene().getWindow());
         Scene currentScene = managementUserButton.getScene();
         currentScene.setRoot(root);
     }
@@ -76,8 +78,7 @@ public class DashboardAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/TransaksiAdminView.fxml"));
         Parent root = loader.load();
         TransaksiAdminController transaksiAdminController = loader.getController();
-        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow());
         Scene currentScene = transaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -87,14 +88,25 @@ public class DashboardAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/HistoriTransaksiAdminView.fxml"));
         Parent root = loader.load();
         HistoriTransaksiAdminController historiTransaksiAdminController = loader.getController();
-        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
 
     @FXML
     private void logoutOnAction(ActionEvent e) throws IOException {
+        Session.getInstance().clearSession();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/LoginView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void initialize() {
+        Entity currentUser = Session.getInstance().getCurrentUser();
+        usernameLabel.setText(currentUser.getUsername() + " (Admin)");
     }
 
 }
