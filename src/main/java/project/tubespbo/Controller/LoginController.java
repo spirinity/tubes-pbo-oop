@@ -5,11 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
 import project.tubespbo.Controller.Admin.DashboardAdminController;
 import project.tubespbo.Controller.Nasabah.DashboardUserController;
 import project.tubespbo.Util.DatabaseConnection;
@@ -38,10 +35,16 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
+    private TextField passwordTextField;
+
+    @FXML
     private Button createAccountButton;
 
     @FXML
     private Button loginButton;
+
+    @FXML
+    private CheckBox showCheckBox;
 
     private Connection connection;
 
@@ -98,5 +101,18 @@ public class LoginController {
         registerController.setStage((Stage) createAccountButton.getScene().getWindow());
         Scene currentScene = createAccountButton.getScene();
         currentScene.setRoot(root);
+    }
+
+    @FXML
+    private void showOnAction(ActionEvent e) {
+        if (showCheckBox.isSelected()) {
+            passwordTextField.setText(passwordField.getText());
+            passwordTextField.setVisible(true);
+            passwordField.setVisible(false);
+        } else {
+            passwordField.setText(passwordTextField.getText());
+            passwordField.setVisible(true);
+            passwordTextField.setVisible(false);
+        }
     }
 }
