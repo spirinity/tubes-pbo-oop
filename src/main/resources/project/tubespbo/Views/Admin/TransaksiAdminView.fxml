@@ -116,17 +116,17 @@
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <TableView layoutX="5.0" layoutY="59.0" prefHeight="253.0" prefWidth="363.0">
+                                                <TableView fx:id="transaksiTableView" layoutX="5.0" layoutY="59.0" prefHeight="253.0" prefWidth="363.0">
                                                   <columns>
-                                                    <TableColumn prefWidth="71.99999809265137" text="Tanggal" />
-                                                    <TableColumn prefWidth="64.79999542236328" text="Username" />
-                                                      <TableColumn prefWidth="58.39996337890625" text="Sampah" />
-                                                      <TableColumn prefWidth="51.199951171875" text="Jumlah" />
-                                                      <TableColumn prefWidth="58.4000244140625" text="Harga" />
-                                                      <TableColumn prefWidth="56.800006103515614" text="Status" />
+                                                    <TableColumn fx:id="tanggalColumn" prefWidth="59.20001029968262" text="Tanggal" />
+                                                    <TableColumn fx:id="usernameColumn" prefWidth="62.39997100830078" text="Username" />
+                                                      <TableColumn fx:id="sampahColumn" prefWidth="56.79998779296875" text="Sampah" />
+                                                      <TableColumn fx:id="beratColumn" prefWidth="62.4000244140625" text="Berat(Kg)" />
+                                                      <TableColumn fx:id="hargaColumn" prefWidth="66.39996337890625" text="Harga" />
+                                                      <TableColumn fx:id="statusColumn" prefWidth="56.800006103515614" text="Status" />
                                                   </columns>
                                                 </TableView>
-                                                <Button layoutX="125.0" layoutY="326.0" mnemonicParsing="false" style="-fx-background-color: #2ddd6e;" text="Konfirmasi Transaksi" />
+                                                <Button fx:id="konfirmasiButton" layoutX="125.0" layoutY="326.0" mnemonicParsing="false" onAction="#konfirmasiOnAction" style="-fx-background-color: #2ddd6e;" text="Konfirmasi Transaksi" />
                                              </children>
                                           </AnchorPane>
                                        </children>
