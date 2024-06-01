@@ -46,6 +46,9 @@ public class ManagementSampahController {
     private Label usernameLabel;
 
     @FXML
+    private Label jumlahJenis;
+
+    @FXML
     private TableView<Sampah> sampahTableView;
 
     @FXML
@@ -138,8 +141,9 @@ public class ManagementSampahController {
     private void loadTrashItems() {
         sampahTableView.getItems().clear();
         String query = "SELECT id, nama_sampah AS nama, harga_sampah AS harga FROM sampah";
-        DatabaseConnection dbConnection = new DatabaseConnection(); // Create an instance
-        try (Connection conn = dbConnection.getConnection(); // Call the method on the instance
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        int jenisCount = 0;
+        try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
@@ -149,10 +153,12 @@ public class ManagementSampahController {
                         rs.getInt("harga")
                 );
                 sampahTableView.getItems().add(item);
+                jenisCount++;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        jumlahJenis.setText("" + jenisCount);
     }
 
     @FXML

@@ -39,7 +39,10 @@
                            <font>
                               <Font size="11.0" />
                            </font></Button>
-                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="      Management User" />
+                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="      Management Admin">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Button>
                         <Button fx:id="transaksiButton" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#transaksiOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="       Transaksi" />
                         <Button fx:id="logoutButton" layoutX="32.0" layoutY="365.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="26.0" prefWidth="29.0" style="-fx-background-color: #FF0000;" />
                         <Label layoutX="81.0" layoutY="368.0" text="Logout">
@@ -118,6 +121,11 @@
                                           </Label>
                                           <Button fx:id="tambahButton" layoutX="33.0" layoutY="326.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Sampah" />
                                           <Button fx:id="deleteButton" layoutX="228.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: red;" text="Delete Sampah" />
+                                          <Label fx:id="jumlahJenis" layoutX="102.0" layoutY="50.0" prefHeight="20.0" prefWidth="71.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                  </children>
