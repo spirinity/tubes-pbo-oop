@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import project.tubespbo.Models.*;
 import project.tubespbo.Util.DatabaseConnection;
@@ -47,6 +46,7 @@ public class TransaksiAdminController {
 
     @FXML
     private Label usernameLabel;
+
     @FXML
     private TableView<Transaksi> transaksiTableView;
 
@@ -81,8 +81,7 @@ public class TransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/DashboardAdminView.fxml"));
         Parent root = loader.load();
         DashboardAdminController dashboardAdminController = loader.getController();
-        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        dashboardAdminController.setStage((Stage) dashboardButton.getScene().getWindow());
         Scene currentScene = dashboardButton.getScene();
         currentScene.setRoot(root);
     }
@@ -92,19 +91,17 @@ public class TransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementSampahView.fxml"));
         Parent root = loader.load();
         ManagementSampahController managementSampahController= loader.getController();
-        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        managementSampahController.setStage((Stage) managementSampahButton.getScene().getWindow());
         Scene currentScene = managementSampahButton.getScene();
         currentScene.setRoot(root);
     }
 
     @FXML
     private void managementUserOnAction(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementUserAdminView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/ManagementAdminView.fxml"));
         Parent root = loader.load();
-        ManagementUserController managementUserController = loader.getController();
-        managementUserController.setStage((Stage) managementUserButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        ManagementAdminController managementAdminController = loader.getController();
+        managementAdminController.setStage((Stage) managementUserButton.getScene().getWindow());
         Scene currentScene = managementUserButton.getScene();
         currentScene.setRoot(root);
     }
@@ -114,8 +111,7 @@ public class TransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/TransaksiAdminView.fxml"));
         Parent root = loader.load();
         TransaksiAdminController transaksiAdminController = loader.getController();
-        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        transaksiAdminController.setStage((Stage) transaksiButton.getScene().getWindow());
         Scene currentScene = transaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -125,8 +121,7 @@ public class TransaksiAdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/tubespbo/Views/Admin/HistoriTransaksiAdminView.fxml"));
         Parent root = loader.load();
         HistoriTransaksiAdminController historiTransaksiAdminController = loader.getController();
-        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow()); // Set the stage instance
-        // Get the current scene and set its root to the new scene's root
+        historiTransaksiAdminController.setStage((Stage) historiTransaksiButton.getScene().getWindow());
         Scene currentScene = historiTransaksiButton.getScene();
         currentScene.setRoot(root);
     }
@@ -192,7 +187,7 @@ public class TransaksiAdminController {
                 } else if ("nasabah".equalsIgnoreCase(role)) {
                     user = new Nasabah(null, username, null, namaLengkap, alamat);
                 } else {
-                    continue; // Skip if role is neither 'admin' nor 'nasabah'
+                    continue;
                 }
 
                 Transaksi transaksi = new Transaksi(id, user, sampah, berat, harga, status, tanggal);
@@ -207,12 +202,10 @@ public class TransaksiAdminController {
 
     @FXML
     private void konfirmasiOnAction() {
-        // Get the selected transaction from the table
         Transaksi selectedTransaksi = transaksiTableView.getSelectionModel().getSelectedItem();
 
         if (selectedTransaksi == null) {
-            // Show an alert or a message if no transaction is selected
-            showAlert("No Selection", "Please select a transaction to confirm.");
+            showAlert("Error", "Mohon untuk memilih transaksi yang ingin dikonfirmasi");
             return;
         }
 
@@ -222,13 +215,12 @@ public class TransaksiAdminController {
         alert.setContentText("Apakah yakin ingin menghapus pengguna admin ini?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            // Update the status of the selected transaction in the database
             String updateQuery = "UPDATE transaksi SET status = ? WHERE id = ?";
             DatabaseConnection dbConnection = new DatabaseConnection();
             try (Connection conn = dbConnection.getConnection();
                  PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
 
-                pstmt.setString(1, "Terkonfirmasi"); // Set the new status
+                pstmt.setString(1, "Terkonfirmasi");
                 pstmt.setInt(2, selectedTransaksi.getId());
 
                 int rowsAffected = pstmt.executeUpdate();
@@ -240,7 +232,6 @@ public class TransaksiAdminController {
 
                     showAlert("Sukses", "Transaksi telah terkonfirmasi");
                 } else {
-                    // Show an error message if no rows were updated
                     showAlert("Error", "Transaksi gagal di konfrimasi");
                 }
             } catch (SQLException e) {
