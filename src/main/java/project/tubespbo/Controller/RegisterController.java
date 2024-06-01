@@ -46,6 +46,8 @@ public class RegisterController {
     public void setStage(Stage stage) {
         this.stage = stage;
         stage.setResizable(false);
+        stage.setWidth(300);
+        stage.setHeight(435);
     }
 
     @FXML
@@ -57,6 +59,9 @@ public class RegisterController {
 
         Scene currentScene = loginButton.getScene();
         currentScene.setRoot(root);
+        stage.setWidth(300);
+        stage.setHeight(435);
+        stage.setResizable(false);
     }
     @FXML
     public void createOnAction() {

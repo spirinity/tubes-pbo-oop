@@ -21,27 +21,30 @@ public class Transaksi {
         this.tanggal = tanggal;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id; }
     public Entity getUser() {
         return user;
     }
-
     public void setUser(Entity user) {
         this.user = user;
     }
-
     public Sampah getSampah() {
         return sampah;
     }
-
     public void setSampah(Sampah sampah) {
         this.sampah = sampah;
     }
-    public int getBerat() { return berat; }
-    public int  getHarga() { return harga; }
-    public String getStatus() { return status; }
-    public Date getTanggal() { return tanggal; }
+    public int getBerat() {
+        return berat; }
+    public int  getHarga() {
+        return harga; }
+    public String getStatus() {
+        return status; }
+    public Date getTanggal() {
+        return tanggal; }
 
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(String status) {
+        this.status = status; }
 }
 

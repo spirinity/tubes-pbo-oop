@@ -129,6 +129,9 @@ public class ManagementAdminController {
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setWidth(300);
+        stage.setHeight(435);
+        stage.setResizable(false);
     }
 
     @FXML
