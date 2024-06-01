@@ -29,8 +29,8 @@
                   </Label>
                   <TextField fx:id="usernameField" layoutX="34.0" layoutY="111.0" pickOnBounds="false" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                   <PasswordField fx:id="passwordField" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <TextField fx:id="login_showPassword" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" visible="false" />
-                  <CheckBox fx:id="login_selectShowPassword" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="119.0" text="Lihat Password" />
+                  <TextField fx:id="passwordTextField" layoutX="34.0" layoutY="157.0" pickOnBounds="false" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" visible="false"/>
+                  <CheckBox fx:id="showCheckBox" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" onAction="#showOnAction" prefHeight="0.0" prefWidth="119.0" text="Lihat Password" />
                   <Button fx:id="loginButton" layoutX="33.0" layoutY="229.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Login" textFill="#0e120e" />
                   <Label layoutX="105.0" layoutY="334.0" text="Buat Akun" />
                   <Button fx:id="createAccountButton" layoutX="36.0" layoutY="358.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Buat Akun" />
@@ -49,28 +49,13 @@
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="signup_email" layoutX="34.0" layoutY="111.0" prefHeight="33.0" prefWidth="194.0" promptText="Email Addres" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <TextField fx:id="signup_username" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <PasswordField fx:id="signup_password" layoutX="34.0" layoutY="203.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <PasswordField fx:id="signup_confirmpassword" layoutX="34.0" layoutY="248.0" prefHeight="33.0" prefWidth="194.0" promptText="Confirm Password" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <TextField layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" visible="false" />
-                  <Button fx:id="signup_btn" layoutX="34.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Sign Up" textFill="#0e120e" />
-                  <Label layoutX="86.0" layoutY="343.0" text="Sign in Account" />
-                  <Button fx:id="signup_loginaccount" layoutX="34.0" layoutY="365.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Login Account" />
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="forget_form" layoutX="14.0" layoutY="15.0" prefHeight="405.0" prefWidth="253.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="72.0" layoutY="77.0" text="Forget Password">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="forget_username" layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Username" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
-                  <TextField layoutX="34.0" layoutY="157.0" prefHeight="33.0" prefWidth="194.0" promptText="Password" visible="false" />
-                  <Button fx:id="forget_proceedbtn" layoutX="34.0" layoutY="203.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Proceed" textFill="#0e120e" />
-                  <Button fx:id="forget_backbtn" layoutX="34.0" layoutY="351.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #16a47c;" text="Back" />
-                  <TextField fx:id="forget_email" layoutX="34.0" layoutY="111.0" prefHeight="33.0" prefWidth="194.0" promptText="Email Addres" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0.3;" />
                </children>
             </AnchorPane>
          </children>
