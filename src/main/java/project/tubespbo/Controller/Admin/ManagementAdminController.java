@@ -46,6 +46,9 @@ public class ManagementAdminController {
     private Label usernameLabel;
 
     @FXML
+    private Label jumlahAdmin;
+
+    @FXML
     private TableView<Admin> userTableView;
 
     @FXML
@@ -152,6 +155,7 @@ public class ManagementAdminController {
         userTableView.getItems().clear();
         String query = "SELECT id, username, password, role, nama_lengkap as namaLengkap, alamat FROM users WHERE role ='admin'";
         DatabaseConnection dbConnection = new DatabaseConnection();
+        int adminCount = 0;
         try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
@@ -164,10 +168,12 @@ public class ManagementAdminController {
                         rs.getString("alamat")
                 );
                 userTableView.getItems().add(admin);
+                adminCount++;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        jumlahAdmin.setText("" + adminCount);
     }
 
     @FXML
