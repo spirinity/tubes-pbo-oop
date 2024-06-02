@@ -121,7 +121,7 @@
                                           </Label>
                                           <Button fx:id="tambahButton" layoutX="33.0" layoutY="326.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Sampah" />
                                           <Button fx:id="deleteButton" layoutX="228.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: red;" text="Delete Sampah" />
-                                          <Label fx:id="jumlahJenis" layoutX="102.0" layoutY="50.0" prefHeight="20.0" prefWidth="71.0">
+                                          <Label fx:id="jumlahJenis" layoutX="111.0" layoutY="50.0" prefHeight="20.0" prefWidth="71.0">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>

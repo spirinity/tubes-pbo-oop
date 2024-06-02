@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import project.tubespbo.Util.DatabaseConnection;
 
-public class Nasabah extends Entity {
+public class Nasabah extends Entity { //inheritence
         private Integer id;
 
         public Nasabah(Integer id, String username, String password, String namaLengkap, String alamat) {

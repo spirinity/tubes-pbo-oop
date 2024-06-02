@@ -133,7 +133,7 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button fx:id="deleteButton" layoutX="232.0" layoutY="321.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: red;" text="Delete Admin" />
-                                                <Label fx:id="jumlahAdmin" layoutX="118.0" layoutY="51.0" prefHeight="20.0" prefWidth="86.0">
+                                                <Label fx:id="jumlahAdmin" layoutX="126.0" layoutY="51.0" prefHeight="20.0" prefWidth="86.0">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>

@@ -1,6 +1,6 @@
 package project.tubespbo.Models;
 
-public abstract class Entity {
+public abstract class Entity { // abstraction
     protected Integer id;
     protected String username;
     protected String password;

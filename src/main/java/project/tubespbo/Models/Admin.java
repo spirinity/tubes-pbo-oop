@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Admin extends Entity {
+public class Admin extends Entity { //inheritence
     private Integer id;
     public Admin(Integer id, String username, String password, String namaLengkap, String alamat) {
-        super(username, password, "admin", namaLengkap, alamat);
+        super(username, password, "admin", namaLengkap, alamat); //superclass
         this.id = id;
     }
     public Integer getId() {

@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Transaksi {
     private int id;
-    private Entity user;
-    private Sampah sampah;
+    private Entity user; //composition
+    private Sampah sampah; //composition
     private int berat;
     private int harga;
     private String status;

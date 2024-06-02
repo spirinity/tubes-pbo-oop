@@ -17,7 +17,7 @@ public class Sampah {
     public void setNama(String nama) { this.nama = nama; }
     public void setHarga(int harga) { this.harga = harga; }
 
-    @Override
+    @Override //polymorphism
     public String toString() {
         return nama;
     }
