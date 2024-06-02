@@ -1,11 +1,10 @@
 package project.tubespbo.Models;
+import project.tubespbo.Util.DatabaseConnection;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
-import project.tubespbo.Util.DatabaseConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Admin extends Entity {
     private Integer id;
@@ -39,5 +38,4 @@ public class Admin extends Entity {
         }
         return false;
     }
-
 }

@@ -53,14 +53,17 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management User">
+                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management Admin">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Assets/UserSettingsIcon.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <font>
+                              <Font size="11.0" />
+                           </font></Button>
                         <Button fx:id="transaksiButton" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#transaksiOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Transaksi">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ffffff;">
@@ -130,6 +133,11 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button fx:id="deleteButton" layoutX="232.0" layoutY="321.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: red;" text="Delete Admin" />
+                                                <Label fx:id="jumlahAdmin" layoutX="118.0" layoutY="51.0" prefHeight="20.0" prefWidth="86.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </AnchorPane>
                                           <Button fx:id="tambahButton" layoutX="43.0" layoutY="336.0" mnemonicParsing="false" onAction="#tambahOnAction" style="-fx-background-color: #2ddd6e;" text="Tambah Admin" />

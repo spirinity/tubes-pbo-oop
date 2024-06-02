@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+
 public class TransaksiNasabahController {
 
     private Stage stage;
@@ -59,7 +60,6 @@ public class TransaksiNasabahController {
 
     @FXML
     private TableColumn<Transaksi, Date> tanggalColumn;
-
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -135,14 +135,20 @@ public class TransaksiNasabahController {
                 "WHERE user_id = ? AND status = 'Pending'";
         DatabaseConnection dbConnection = new DatabaseConnection();
 
+        Entity currentUser = Session.getInstance().getCurrentUser();
+        if (currentUser == null || currentUser.getId() == null) {
+            System.err.println("No user is currently logged in or user ID is null.");
+            return;
+        }
+
         try (Connection conn = dbConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, Session.getInstance().getCurrentUser().getId());
+            pstmt.setInt(1, currentUser.getId());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 Transaksi transaksi = new Transaksi(
                         rs.getInt("id"),
-                        Session.getInstance().getCurrentUser(),
+                        currentUser,
                         new Sampah(rs.getInt("id"), rs.getString("nama"), rs.getInt("harga")),
                         rs.getInt("berat"),
                         rs.getInt("harga"),
@@ -155,6 +161,7 @@ public class TransaksiNasabahController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void addTransaksiOnAction() {
         try {

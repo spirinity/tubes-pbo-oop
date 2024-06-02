@@ -1,9 +1,8 @@
 package project.tubespbo.Models;
 
 public abstract class Entity {
-
+    protected Integer id;
     protected String username;
-
     protected String password;
     protected String role;
     protected String namaLengkap;
@@ -37,7 +36,19 @@ public abstract class Entity {
         return alamat;
     }
 
-    public abstract boolean authenticate();
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
 
     public abstract Integer getId();
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public abstract boolean authenticate();
+
 }

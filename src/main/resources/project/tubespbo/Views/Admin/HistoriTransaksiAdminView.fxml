@@ -53,14 +53,17 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management User">
+                        <Button fx:id="managementUserButton" layoutX="32.0" layoutY="226.0" mnemonicParsing="false" onAction="#managementUserOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Management Admin">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Assets/UserSettingsIcon.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <font>
+                              <Font size="11.0" />
+                           </font></Button>
                         <Button fx:id="transaksiButton" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#transaksiOnAction" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: #FFA500;" text="Transaksi">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ffffff;">
